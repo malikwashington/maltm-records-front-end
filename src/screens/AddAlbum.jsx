@@ -12,7 +12,7 @@ function AddAlbum({setToggleApiCall}) {
     artist: artistID,
     albumCover: "",
     songs: [],
-    year: 0
+    year: null
   })
 
   let navigate = useNavigate()

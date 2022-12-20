@@ -15,21 +15,18 @@ function FilterCharacter({albums}) {
     if (searchLetter == 'numbers') {
       filteredList = albums.filter((album) => {
         for (const number of numbers) {
-          console.log(number)
           if(firstLetter(album, number))
-          return album.title.split("")[0].includes(`${number}`)
+          return firstLetter(album, number)
         }
 })
       
     } else {
       filteredList = albums.filter((album) => {
         return firstLetter(album, searchLetter)
-        //album.title.split("")[0].toLowerCase().includes(searchLetter);
       })
     };
 
     setAlbumsList(filteredList);
-    console.log(filteredList)
     }, [letter]);
   return (
     <div>
