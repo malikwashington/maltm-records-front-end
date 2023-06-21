@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { createAlbum } from '../services/albums.js'
 
 function AddAlbum({setToggleApiCall}) {
-
+  const [showRemove, setShowRemove] = useState(false)
   const { artistID } = useParams()
 
   const [album, setAlbum] = useState({
@@ -31,7 +31,7 @@ function AddAlbum({setToggleApiCall}) {
         [name]: value
       }))
     }
-    
+    console.log(album)
   }
 
   const addSong = () => {
@@ -48,7 +48,7 @@ function AddAlbum({setToggleApiCall}) {
     setToggleApiCall(prev => !prev)
     navigate(`/artists/${artistID}`, {replace: true})
   }
-console.log(setAlbum, setAlbum.songs)
+
   return (
     <>
       <h1> Add Album</h1>
@@ -59,6 +59,7 @@ console.log(setAlbum, setAlbum.songs)
             className="album-input"
             placeholder="Enter Title"
             name="title"
+            required
             value={album.title}
             onChange={handleChange}
           />
@@ -66,6 +67,7 @@ console.log(setAlbum, setAlbum.songs)
             className="album-input"
             placeholder="Enter Album Image Link"
             name="albumCover"
+            required
             value={album.albumCover}
             onChange={handleChange}
           />
@@ -81,6 +83,7 @@ console.log(setAlbum, setAlbum.songs)
               className="song"
               placeholder="Enter song"
               name="songs"
+              required
               value={album.songs}
               onChange={handleChange}
             />

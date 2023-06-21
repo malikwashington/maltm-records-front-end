@@ -5,12 +5,13 @@ import AlbumCover from "../components/AlbumCover.jsx";
 import "../App.css";
 
 
-function ArtistDetail() {
+function ArtistDetail({id}) {
   const [artist, setArtist] = useState({});
   const [artistName, setArtistName] = useState("");
 
 
   const { artistID } = useParams();
+  console.log(id)
 
   useEffect(() => {
     const fetchArtist = async () => {
